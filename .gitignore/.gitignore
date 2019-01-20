@@ -1,0 +1,16 @@
+# sbt
+lib_managed
+project/project
+target
+
+# Eclipse
+.cache*
+.classpath
+.project
+.scala_dependencies
+.settings
+.target
+.worksheet
+
+# IntelliJ
+.idea
