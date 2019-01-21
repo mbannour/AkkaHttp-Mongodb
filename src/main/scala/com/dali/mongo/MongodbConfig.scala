@@ -4,7 +4,7 @@ import com.typesafe.config.{Config, ConfigFactory}
 
 object MongodbConfig {
 
-  lazy val host = rootConfig.getString("server.host")
+  lazy val host = rootConfig.getString("mongo.host")
 
   private val rootConfig: Config = ConfigFactory.load()
 

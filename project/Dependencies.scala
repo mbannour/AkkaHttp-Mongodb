@@ -16,6 +16,7 @@ object Dependencies {
   lazy val akkahttpCirce   = "de.heikoseeberger" %% "akka-http-circe"        % akkaHttpCirce
   lazy val circeGeneric    = "io.circe"          %% "circe-generic"          % circeVersion
   lazy val mongo           = "org.mongodb.scala" %% "mongo-scala-driver"     % mongoVersion
+  
 
   lazy val scalaTest    = "org.scalatest"     %% "scalatest"         % scalaTestVersion
   lazy val akkaHttpTest = "com.typesafe.akka" %% "akka-http-testkit" % akkaHttpVersion
