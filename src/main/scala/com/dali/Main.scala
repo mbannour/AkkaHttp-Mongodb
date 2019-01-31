@@ -2,28 +2,31 @@ package com.dali
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
-import akka.http.scaladsl.model._
-import akka.http.scaladsl.server.Directives._
 import akka.stream.ActorMaterializer
-import com.dali.user.api.UserRoute
+import com.dali.mongo.Mongo
+import com.dali.user.api.UserRoutes
 import com.dali.user.application.{UserRepository, UserService}
+import com.dali.user.domain.User
+import org.mongodb.scala.MongoCollection
 
 import scala.io.StdIn
 
-object Main extends App with UserRoute {
+object Main extends App with UserRoutes {
 
   implicit val system       = ActorSystem("my-system")
   implicit val materializer = ActorMaterializer()
 
   implicit val executionContext = system.dispatcher
 
-  implicit lazy val ec = system.dispatchers.lookup("akka-http-mongo")
+  lazy val dao = system.dispatchers.lookup("akka-dao-mongo")
 
-  val userDao = new UserRepository()
+  val mongo = new Mongo()
 
-  override val userService = new UserService(userDao)
+  val userDao = new UserRepository(mongo)(dao)
 
-  val route = userRoute
+  override val userService = new UserService(userDao)(dao)
+
+  val route = userRoutes
 
   val bindingFuture = Http().bindAndHandle(route, "localhost", 8080)
 
