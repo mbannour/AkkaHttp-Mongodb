@@ -1,10 +1,10 @@
 # AkkaHttp-Mongodb
 
-This is a simple project, in which I used akka http for creating REST API with a Mongodb as database for storing and retrieving data.
+This is a simple project, in which I used akka HHTP for creating REST API with a Mongodb as database for storing and retrieving data.
 In this Project I used the following technologies: 
 
 - **MongoDB Scala Driver** which provides asynchronous event-based observable sequences for MongoDB.
-- **circe** for 
+- **circe** 
 - **Akka HTTP**
 
 
