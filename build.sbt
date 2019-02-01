@@ -29,6 +29,9 @@ lazy val root = (project in file("."))
       akkahttpCirce,
       akkaStream,
       akkaHttpTest,
+      sl4j,
+      scalaLogging,
+      logback,
       mongo
     )
   )

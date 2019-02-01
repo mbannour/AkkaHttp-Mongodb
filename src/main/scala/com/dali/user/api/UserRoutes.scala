@@ -8,6 +8,7 @@ import com.dali.user.domain.UserSerialization._
 import Directives._
 import akka.http.scaladsl.model.StatusCodes
 import com.dali.user.domain.{UpdateUser, User, UserLogin}
+import org.mongodb.scala.bson.ObjectId
 
 import scala.util.{Failure, Success}
 
@@ -33,7 +34,7 @@ trait UserRoutes {
         entity(as[UpdateUser]) { user =>
           onComplete(userService.updateUser(user)) {
             case Success(updatedUser) =>
-              complete(updatedUser, "user is updated !")
+              complete("user is updated !")
             case Failure(_) =>
               complete(StatusCodes.NotFound)
           }
@@ -51,14 +52,25 @@ trait UserRoutes {
         }
       }
     } ~ get {
-      onComplete(userService.finOneUser()) {
-        case Success(Some(user)) =>
+      parameters('id.as[String]) { id =>
+        onComplete(userService.finOneUserById(new ObjectId(id))) {
+          case Success(Some(user)) =>
+            complete(user)
+          case Success(None) =>
+            complete(StatusCodes.OK, "Nothing found in the user Database")
+          case Failure(_) => {
+            complete(StatusCodes.NotFound)
+          }
+        }
+      }
+    } ~ get {
+      onComplete(userService.findAllUser()) {
+        case Success(user) =>
           complete(user)
-        case Success(None) =>
-          complete(StatusCodes.OK, "Nothing found in the user Database")
         case Failure(_) => {
           complete(StatusCodes.NotFound)
         }
+
       }
     }
   }
