@@ -8,13 +8,13 @@ In this Project I used the following technologies:
 - **Akka HTTP**
 
 
-Before starting this project you should have Mongodb installed locally or you can start a mongodb docker container and you should already installed scala.
+Before starting this project you should have Mongodb installed locally or you can start a mongodb docker container and you should have already installed scala.
 
 In my case I user docker instance for Mongodb, to start that it is very simple just run this command:
 
 ```docker run --name mongodb -p 27017:27017 -d mongo```
 
-After that run :
+After that to start the whole project just run :
 
 ```sbt run ```
 
