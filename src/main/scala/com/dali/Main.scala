@@ -22,9 +22,5 @@ object Main extends App with ServerConfig with StrictLogging {
   logger.info(s"Server start at : $host:$port")
 
   Http().bindAndHandle(route, host, port)
-//
-//  bindingFuture
-//    .flatMap(_.unbind())
-//    .onComplete(_ => system.terminate())
 
 }

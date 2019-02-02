@@ -1,7 +1,7 @@
 package com.dali
 import akka.actor.ActorSystem
 import akka.dispatch.MessageDispatcher
-import com.dali.mongo.MongoDb
+import com.dali.mongo.{MongoDb, MongodbConfig}
 import com.dali.user.application.{UserRepository, UserService}
 
 trait ModulesWiring {
@@ -10,7 +10,7 @@ trait ModulesWiring {
 
   lazy val dao: MessageDispatcher = _system.dispatchers.lookup("akka-dao-mongo")
 
-  lazy val mongo = new MongoDb("userApp", "users")
+  lazy val mongo = new MongoDb(MongodbConfig.databaseName, "users")
 
   lazy val userDao = new UserRepository(mongo)(dao)
 
