@@ -16,7 +16,7 @@ trait UserRoutes {
 
   val userService: UserService
 
-  def userRoutes = pathPrefix("api" / "user") {
+  def userRoutes = pathPrefix("api" / "users") {
     path("create") {
       post {
         entity(as[User]) { user =>

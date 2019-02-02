@@ -1,0 +1,13 @@
+version: '3'
+services:
+  apiserver:
+    restart: always
+    image: user-app:0.0.1
+    ports:
+      - 9000:9000
+    environment:
+      MONGO_URL: "mongodb://mongo:27017"
+      DB_NAME: "userApp"
+  mongo:
+    image: mongo
+    restart: always
