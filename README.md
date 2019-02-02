@@ -4,18 +4,18 @@ This is a simple project, in which I used akka HTTP for creating a REST API with
 In this Project I used the following technologies: 
 
 - **MongoDB Scala Driver** 
-- **circe** 
+- **Circe** 
 - **Akka HTTP**
 
 # Requirements
 
 - JDK 8 (http://www.oracle.com/technetwork/java/javase/downloads/index.html);
-- sbt (http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html);
+- Sbt (http://www.scala-sbt.org/release/docs/Getting-Started/Setup.html);
 - Docker (For Lunix: https://docs.docker.com/install/linux/docker-ce/ubuntu/)
 
 # Development guide
 
-Before starting this project you should have Mongodb installed locally or you can start a mongodb docker container in your local machine.
+Before starting this project you should have Mongodb installed locally or you can start a mongodb container in your local machine.
 
 In my case I user docker instance for Mongodb, to start that it is very simple just run this command:
 
