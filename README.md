@@ -1,4 +1,4 @@
-# Akka HTTP-Mongodb Applcation
+# Akka HTTP-Mongodb Application
 
 This is a simple project, in which I used akka HTTP for creating a REST API with Mongodb as database for storing and retrieving data.
 In this Project I used the following technologies: 
