@@ -35,9 +35,7 @@ After publishing the image locally, the easiest way to start the application is 
 
 Now you have the application running in docker , for testing some functionalities just run theses commands :
 
-```curl --header "Content-Type: application/json" --request POST \
-  --data ' {"id": "58dd0a68218de27733475fa4","login": "user1", "email": "email@email.com","password": "secret"}' \
-  http://localhost:9000/api/users/create```
+```curl --header "Content-Type: application/json" --request POST  --data ' {"id": "58dd0a68218de27733475fa4","login": "user1", "email": "email@email.com","password": "secret"}' http://localhost:9000/api/users/create```
 
 ``` curl -i -H "Accept: application/json" "http://localhost:9000/api/users" ```
 
